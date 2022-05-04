@@ -23,4 +23,3 @@ services:
       - /home/dbohry/docker/valheim/data:/opt/valheim
     ports:
       - 2456-2458:2456-2458/udp
-      - 80
