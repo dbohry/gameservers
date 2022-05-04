@@ -1,0 +1,26 @@
+---
+version: '2'
+services:
+  valheim:
+    image: lloesche/valheim-server
+    container_name: valheim
+    restart: always
+    environment:
+      - SERVER_NAME=Duck Team Server
+      - WORLD_NAME=Valhalla
+      - SERVER_PASS=secret123
+      - SERVER_PUBLIC=1
+      - DNS_1=1.1.1.1
+      - DNS_2=1.0.0.1
+      - VALHEIM_PLUS=false
+      - BEPINEX=true
+      - SERVER_PUBLIC=true
+      - RESTART_CRON=0 5 * * *
+      - BACKUPS_MAX_AGE=3
+      - BACKUPS_IF_IDLE=false
+    volumes:
+      - /home/dbohry/docker/valheim/config:/config
+      - /home/dbohry/docker/valheim/data:/opt/valheim
+    ports:
+      - 2456-2458:2456-2458/udp
+      - 80

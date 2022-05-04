@@ -1,0 +1,19 @@
+---
+version: '2'
+services:
+  minecraft:
+    image: itzg/minecraft-server
+    container_name: minecraft
+    restart: always
+    environment:
+      - EULA=true
+      - SERVER_NAME=Duck Team Server
+      - DIFFICULTY=hard
+      - TYPE=SPIGOT
+      - MEMORY=2G
+      - VERSION=LATEST
+      - SERVER_PORT=25565
+    volumes:
+      - /home/dbohry/docker/minecraft/data:/data
+    ports:
+      - 25565:25565

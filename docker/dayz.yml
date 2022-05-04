@@ -1,0 +1,18 @@
+version: '3.4'
+services:
+  dayzserver:
+    image: gameservermanagers/linuxgsm-docker
+    container_name: dayzserver
+    environment:
+      - GAMESERVER=dayzserver
+      - LGSM_GITHUBUSER=GameServerManagers
+      - LGSM_GITHUBREPO=LinuxGSM
+      - LGSM_GITHUBBRANCH=master
+    volumes:
+      - /home/dbohry/docker/dayz:/home/linuxgsm/serverfiles
+      - /home/dbohry/docker/dayz:/home/linuxgsm/log
+      - /home/dbohry/docker/dayz:/home/linuxgsm/lgsm/config-lgsm
+    ports:
+      - "2302-2305:2302-2305/udp"
+    restart: unless-stopped
+    network_mode: "bridge"

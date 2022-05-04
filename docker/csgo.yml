@@ -1,0 +1,25 @@
+---
+version: '2'
+services:
+  csgo:
+    image: cm2network/csgo
+    container_name: csgo
+    restart: always
+    environment:
+      - SRCDS_TOKEN=E2F3F3C8037D546E0E8A68DEE0BC7944
+      - SRCDS_HOSTNAME="[PRAT] CSGO:128 ticks"
+      - SRCDS_STARTMAP="de_dust2"
+      - SRCDS_REGION=3
+      - SRCDS_MAPGROUP="mg_active"
+      - SRCDS_GAMETYPE=0
+      - SRCDS_GAMEMODE=0
+      - SRCDS_FPSMAX=300
+      - SRCDS_TICKRATE=128
+      - SRCDS_MAXPLAYERS=14
+    volumes:
+      - /home/dbohry/docker/csgo/data:/home/steam/csgo-dedicated/
+    ports:
+      - 27015:27015/udp
+      - 27015:27015/tcp
+      - 27020:27020/udp
+    network_mode: "bridge"
